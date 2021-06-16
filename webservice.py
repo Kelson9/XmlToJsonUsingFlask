@@ -1,5 +1,4 @@
 # Program to convert an xml
-# file to json file
   
 # import json module and xmltodict
 # module provided by python
@@ -7,9 +6,7 @@ import json
 import xmltodict
 from lxml import etree
   
-  
-# open the input xml file and read
-# data in form of python dictionary 
+   
 # using xmltodict module
 def validate(xml_path: str, xsd_path: str) -> bool:
     
@@ -31,14 +28,9 @@ def validate(xml_path: str, xsd_path: str) -> bool:
         return {'status':500,'error':'An unexpected error occured'}
 
    
-    
-   
-
-
-
 def toJson():
        
-    with open("xml.xml") as xml_file:
+    with open("student.xml") as xml_file:
       
          data_dict = xmltodict.parse(xml_file.read())
          xml_file.close()

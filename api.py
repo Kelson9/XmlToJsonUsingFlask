@@ -6,11 +6,11 @@ app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
 
-@app.route('/api/v1/validate', methods=['GET'])
+@app.route('/api/validate', methods=['GET'])
 def api_all():
     # take in xml file path
-    xml_path = './xml.xml'
-    xsd_path = './xsd.xsd'
+    xml_path = './student.xml'
+    xsd_path = './student.xsd'
 
     if xml_path and xsd_path:
         response = webservices.validate(xml_path,xsd_path)
@@ -23,7 +23,7 @@ def api_all():
            else:
               return jsonify({'status':422,"isValid":isValid,'jsonData':Null})
         else:
-             return jsonify({'message':response})
+             return jsonify({"isValid":False,'message':response})
 
         
     else:
